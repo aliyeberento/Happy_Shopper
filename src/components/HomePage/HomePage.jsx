@@ -1,24 +1,8 @@
 import React, { Component } from 'react';
-// import { connect } from 'react-redux';
-// // import LogOutButton from '../LogOutButton/LogOutButton';
+import { connect } from 'react-redux';
+import {Link } from 'react-router-dom';
 
-// // this could also be written with destructuring parameters as:
-// // const UserPage = ({ user }) => (
-// // and then instead of `props.user.username` you could use `user.username`
 
-// const UserPage = (props) => (
-//   <div >
-//     <h1 id="welcome">
-//       Welcome back, 
-//       <br />
-//       { props.user.username }!
-//     </h1>
-//     {/* <LogOutButton className="log-in" /> */}
-//   </div>
-// );
-
-// // Instead of taking everything from state, we just want the user info.
-// // if you wanted you could write this code like this:
 // // const mapStateToProps = ({user}) => ({ user });
 // const mapStateToProps = state => ({
 //   user: state.user,
@@ -29,20 +13,81 @@ import React, { Component } from 'react';
 
 
 class HomePage extends Component {
-    
+
+    state = {
+        search: {
+            searchQuery: ''
+        }
+    }
+
+    handleSearch = (event) => {
+        this.setState({
+            search: {
+                ...this.state.search,
+                searchQuery: event.target.value
+            }
+        }, () => {
+            console.log(this.state.search.searchQuery)
+        })
+    }
+
+
+    handleClick = () => {
+        console.log('in handle click')
+        this.props.dispatch({
+            type: 'FETCH_ITEMS',
+            payload: this.state.search.searchQuery
+        })
+        console.log(this.state.search.searchQuery)
+    }
+
+    addToList = (event,item) => {
+        // event.persist()
+        console.log('ADDING TO LIST',item)
+        // alert('added to list', item)
+        this.props.dispatch({
+            type: 'ADD_ITEM',
+            payload: item
+        })
+    }
+
+
     render() {
         return (
-            
-                <div >
-                    <h1 id="welcome">
+            <>
+                <div id="welcomeHeader">
+                    <h1>
                         Welcome back,
                         <br />
-                        {this.props.user.username}!
-                     </h1>
-                    {/* <LogOutButton className="log-in" /> */}
+                        {this.props.store.user.username}
+                    </h1>
                 </div>
-            )
+                <Link to = "/list"> View List </Link>
+                <div>
+                    <form>
+                        <input placeholder="SEARCH" value={this.state.search.searchQuery} onChange={(event) => this.handleSearch(event)} />
+                        <input type="submit" onClick={this.handleClick} />
+                    </form>
+                    <div>
+                        <ul>
+                            {this.props.store.search.map(item => (
+                                <li key = {item.id}>
+                                    <img src = {item.item_image} alt = "item"/>
+                                    <br />
+                                     {item.item_name} | Price: {item.item_price} Aisle : {item.item_isle}
+                                     <button onClick = {(event) => this.addToList(event, item)}> Add </button>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                </div>
+            </>
+        )
     }
 }
 
-export default HomePage
+const mapStateToProps = store => ({
+    store
+});
+
+export default connect(mapStateToProps)(HomePage)
