@@ -5,6 +5,7 @@ class RegisterPage extends Component {
   state = {
     username: '',
     password: '',
+    number: ''
   };
 
   registerUser = (event) => {
@@ -16,6 +17,7 @@ class RegisterPage extends Component {
         payload: {
           username: this.state.username,
           password: this.state.password,
+          number: this.state.number
         },
       });
     } else {
@@ -31,7 +33,7 @@ class RegisterPage extends Component {
 
   render() {
     return (
-      <div>
+      <div className = " signUp " >
         {this.props.errors.registrationMessage && (
           <h2
             className="alert"
@@ -42,7 +44,7 @@ class RegisterPage extends Component {
         )}
         <form onSubmit={this.registerUser}>
           <h1>Register User</h1>
-          <div>
+          <div >
             <label htmlFor="username">
               Username:
               <input
@@ -52,8 +54,9 @@ class RegisterPage extends Component {
                 onChange={this.handleInputChangeFor('username')}
               />
             </label>
+            <br />
           </div>
-          <div>
+          <div >
             <label htmlFor="password">
               Password:
               <input
@@ -63,23 +66,34 @@ class RegisterPage extends Component {
                 onChange={this.handleInputChangeFor('password')}
               />
             </label>
+            <br />
+            <label htmlFor="password">
+              Phone Number:
+              <input
+                type="number"
+                name="number"
+                value={this.state.password}
+                onChange={this.handleInputChangeFor('number')}
+              />
+              </label>
           </div>
-          <div>
+            <br />
             <input
               className="register"
               type="submit"
               name="submit"
               value="Register"
             />
-          </div>
+          <br />
         </form>
         <center>
+          Existing User? -
           <button
             type="button"
             className="link-button"
             onClick={() => {this.props.dispatch({type: 'SET_TO_LOGIN_MODE'})}}
           >
-            Login
+            - Login
           </button>
         </center>
       </div>
