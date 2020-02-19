@@ -8,9 +8,11 @@ router.get('/', (req, res) => {
     JOIN "items" ON "items".id = "list_items".items_id
     WHERE "list_id" = 1`
     console.log('in get list', req.body)
+    console.log('list id:', req.body.list_id)
     pool.query(queryText)
         .then(result => {
             console.log(result.rows)
+            console.log('list id:', req.body.list_id)
             res.send(result.rows)
         }).catch(error => {
             console.log('error in list items GET', error)

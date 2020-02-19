@@ -41,7 +41,7 @@ class HomePage extends Component {
         console.log(this.state.search.searchQuery)
     }
 
-    addToList = (event,item) => {
+    addToList = (event, item) => {
         // event.persist()
         console.log('ADDING TO LIST',item)
         // alert('added to list', item)
@@ -73,9 +73,11 @@ class HomePage extends Component {
                             {this.props.store.search.map(item => (
                                 <li key = {item.id}>
                                     <img src = {item.item_image} alt = "item"/>
-                                    <br />
-                                     {item.item_name} | Price: {item.item_price} Aisle : {item.item_isle}
-                                     <button onClick = {(event) => this.addToList(event, item)}> Add </button>
+                                     {item.item_name} 
+                                     <br />
+                                      Price: {item.item_price} Aisle : {item.item_isle}
+                                     <button className = " addBtn " onClick = {(event) => this.addToList(event, item)}> Add </button>
+                                     {/* <br /> */}
                                 </li>
                             ))}
                         </ul>

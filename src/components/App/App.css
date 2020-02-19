@@ -1,8 +1,8 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0px;
-    background-color: #ffcfcf;
-    color: white;
+    background: linear-gradient(#0d47a1, #1565c0, #1976d2, #1e88e5, #2196f3); 
+    background-repeat: no-repeat;   
 }
 
 .alert {
@@ -51,12 +51,23 @@ input {
 }
 
 img {
-    height: 100px;
-    width: 100px;
+    height: 50px;
+    width: 50px;
 }
 
 li {
     list-style: none;
+    border-radius: 25px;
+    border: 2px solid white;
+    padding: 30px;
+    width: 50x;
+    height: 25px;
+    background-color: transparent;
+    color: white ;
+    font-size: small;
+    margin-left: ;
+    /* display:table; */
+    /* margin:0px auto 0px auto; */
 }
 
 .signUp {
@@ -65,4 +76,18 @@ li {
     left: 50%;
     /* bring your own prefixes */
     transform: translate(-50%, -50%);
+  }
+
+  .addBtn {
+/*    
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer; */
   }
