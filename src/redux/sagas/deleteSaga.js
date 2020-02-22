@@ -9,10 +9,10 @@ function* deleteItem(action) {
         try {
             console.log(action.payload)
             let id = action.payload.id
-            console.log('user id:', action.payload )
             let response = yield axios.delete(`/api/list/${id}`);
-            yield put({ type: 'FETCH_ITEMS' })
+            // yield put({ type: 'SHOW_ITEMS' })
             console.log(response.data);
+            yield put({type:'GETTING_ITEM'})
         }
         catch (error) {
             console.log('Error getting items', error)

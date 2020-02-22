@@ -11,7 +11,7 @@ import {connect} from 'react-redux';
 import Nav from '../Nav/Nav';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
 
-import HomePage from '../HomePage/HomePage';
+import SearchPage from '../SearchPage/SearchPage';
 import ListView from '../ListView/ListView'
 import './App.css';
 
@@ -38,7 +38,7 @@ componentDidMount () {
             <ProtectedRoute
               exact
               path="/home"
-              component={HomePage}
+              component={SearchPage}
             />
             {/* This works the same as the other protected route, except that if the user is logged in,
             they will see the info page instead. */}

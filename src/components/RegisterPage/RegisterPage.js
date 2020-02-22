@@ -72,7 +72,7 @@ class RegisterPage extends Component {
               <input
                 type="number"
                 name="number"
-                value={this.state.password}
+                value={this.state.number}
                 onChange={this.handleInputChangeFor('number')}
               />
               </label>

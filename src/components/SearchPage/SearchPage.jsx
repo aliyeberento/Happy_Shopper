@@ -1,22 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+
+import SearchItem from '../SearchItem/SearchItem'
 
 
-// // const mapStateToProps = ({user}) => ({ user });
-// const mapStateToProps = state => ({
-//   user: state.user,
-// });
 
-// // this allows us to use <App /> in index.js
-// export default connect(mapStateToProps)(UserPage);
-
-
-class HomePage extends Component {
+class SeachPage extends Component {
 
     state = {
         search: {
             searchQuery: ''
+        },
+        quantity: {
+            quantity: 0
         }
     }
 
@@ -41,17 +38,6 @@ class HomePage extends Component {
         console.log(this.state.search.searchQuery)
     }
 
-    addToList = (event, item) => {
-        // event.persist()
-        console.log('ADDING TO LIST',item)
-        // alert('added to list', item)
-        this.props.dispatch({
-            type: 'ADD_ITEM',
-            payload: item
-        })
-    }
-
-
     render() {
         return (
             <>
@@ -62,25 +48,15 @@ class HomePage extends Component {
                         {this.props.store.user.username}
                     </h1>
                 </div>
-                <Link to = "/list"> View List </Link>
-                <div>
+                <Link to="/list"> View List </Link>
+                <div className = "searchResults">
+
                     <form>
                         <input placeholder="SEARCH" value={this.state.search.searchQuery} onChange={(event) => this.handleSearch(event)} />
                         <input type="submit" onClick={this.handleClick} />
                     </form>
                     <div>
-                        <ul>
-                            {this.props.store.search.map(item => (
-                                <li key = {item.id}>
-                                    <img src = {item.item_image} alt = "item"/>
-                                     {item.item_name} 
-                                     <br />
-                                      Price: {item.item_price} Aisle : {item.item_isle}
-                                     <button className = " addBtn " onClick = {(event) => this.addToList(event, item)}> Add </button>
-                                     {/* <br /> */}
-                                </li>
-                            ))}
-                        </ul>
+                        <SearchItem />
                     </div>
                 </div>
             </>
@@ -92,4 +68,4 @@ const mapStateToProps = store => ({
     store
 });
 
-export default connect(mapStateToProps)(HomePage)
+export default connect(mapStateToProps)(SeachPage)

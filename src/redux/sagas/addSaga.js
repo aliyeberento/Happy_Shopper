@@ -5,7 +5,7 @@ function* add (action) {
     console.log(`ready to add this item: ${action.payload}`)
     let response = yield axios.post(`/api/list`, action.payload)
     console.log('in add Saga', response.data)
-    yield put({type: 'SET_ITEM', payload: action.payload})
+    yield put({type: 'GETTING_ITEM'})
 }
 
 function* addSaga(){
