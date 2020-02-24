@@ -1,6 +1,14 @@
 import React, { Component } from "react";
-import axios from 'axios';
 import { connect } from "react-redux";
+import {
+    Card, CardImg, CardText, CardBody,
+    CardTitle, Button
+} from 'reactstrap';
+import {
+    Route,
+} from 'react-router-dom';
+import { Link } from 'react-router-dom';
+
 
 
 class ListView extends Component {
@@ -10,23 +18,16 @@ class ListView extends Component {
     }
 
     getItems = () => {
-       this.props.dispatch({
-           type: 'GETTING_ITEM',
-       })
+        this.props.dispatch({
+            type: 'GETTING_ITEM',
+        })
     }
 
     updateQuantity = (item) => {
-        // axios.put('/api/list')
-        // .then(response => {
-        //     console.log(response)
-        // }).catch(error => {
-        //     console.log(error)
-        // })
         this.props.dispatch({
             type: 'UPDATE_QUANTITY',
             payload: item
         })
-        // this.getItems();
     }
 
     componentDidMount() {
@@ -40,58 +41,39 @@ class ListView extends Component {
         })
     }
 
-    // addQuantity = (event) => {
-    //     this.setState({
-    //         quantity: {
-    //             quantity: this.state.quantity.quantity + 1
-    //         }
-    //     }, () => {
-    //         console.log(this.state.quantity.quantity)
-    //     })
-    // }
-
 
     render() {
         return (
-            // {JSON.stringify(this.state.cart)}
             this.props.store.addingToList.map(item =>
                 <>
-                    <button onClick = {() =>this.updateQuantity(item)} > + </button>
-                    {item.quantity}
-                    <button> - </button>
 
-                    <ul>
-                        <li key = {item.item_id}>
+                    <div>
+                        <Card className="card">
+                            <center>  <CardImg height="140%" src={item.item_image} alt="Card image cap" /> </center>
+                            <CardBody>
+                                <CardTitle>{item.item_name}</CardTitle>
+                                <div className="list-group-flush" >
+                                    <CardText>PRICE: ${item.item_price}</CardText>
+                                    <CardText>AISLE: {item.item_isle}</CardText>
+                                </div>
+                                <div>
+                                    <Button onClick={() => this.updateQuantity(item)} > + </Button>
+                                    {item.quantity}
+                                    <button> - </button>
+                                    <button onClick={() => this.removeItem(item)}> REMOVE </button>
 
-                            <div className="itemPic">
-                                <img src={item.item_image}
-                                    alt="item" />
-                            </div>
-
-                            <div className="itemName">
-                                {item.item_name}
-                            </div>
-
-                            <br />
-                            <div className="itemPrice">
-                                <h6> PRICE: {item.item_price} </h6>
-                            </div>
-
-                            {/* <br /> */}
-                            <div className="itemAisle">
-                                <h6> AISLE: {item.item_isle} </h6>
-                            </div>
-
-
-
-
-                            <button onClick={() => this.removeItem(item)}> REMOVE </button>
-
-                        </li>
-
-                    </ul>
+                                </div>
+                            </CardBody>
+                        </Card>
+                    </div>
+                    <button>
+                        <footer>
+                            <Link to="/home">
+                                Back Home
+                        </Link>
+                        </footer>
+                    </button>
                 </>
-
             )
         )
     }

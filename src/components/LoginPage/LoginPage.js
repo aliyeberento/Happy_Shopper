@@ -66,16 +66,16 @@ class LoginPage extends Component {
               </label>
             </div>
             <div>
-              <input
+              <button
                 className="log-in"
-                type="submit"
-                name="submit"
+                className="log-in"
                 value="Log In"
-              />
+              > LOG IN
+              </button>
             </div>
           </form>
           <center>
-            If not, register here - 
+            If not, register here -
             <button
               type="button"
               className="link-button"

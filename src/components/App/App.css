@@ -3,21 +3,8 @@ body {
     margin: 0px;
     /* background: linear-gradient(#0d47a1, #1565c0, #1976d2, #1e88e5, #2196f3); 
     background-repeat: no-repeat;    */
-    background-color: lavender;
+    background-color: #89ABE3FF;
     color: black;
-}
-
-.searchResults{
-    height: 100%;
-    /* background: linear-gradient(#0d47a1, #1565c0, #1976d2, #1e88e5, #2196f3); 
-    background-repeat: no-repeat;    */
-
-}
-
-* {
-    /* background: linear-gradient(#0d47a1, #1565c0, #1976d2, #1e88e5, #2196f3);  */
-    /* background-repeat: no-repeat;    */
-
 }
 
 .alert {
@@ -25,18 +12,24 @@ body {
     margin: 50px;
 }
 
-/* form {
-    background-color: #dbd5d5;
-    width: 30%;
-    height: 250px;
+form {
+    width: 50%;
     margin: 20px auto;
-    padding: 25px;
-    border-radius: 2px;
-} */
+    padding: 5px;
+}
+
+.done {
+    float: right;
+    margin-right: 5px;
+}
 
 input {
-    margin: 5px;
-    margin-bottom: 10px;
+    display: flex;
+    background-color: #89ABE3FF;
+    border: 2px solid;
+    border-color: white;
+
+    /* justify-content: center; */
 }
 
 .log-in, .log-out, .register {
@@ -65,25 +58,60 @@ input {
     cursor: pointer;
 }
 
-img {
-    height: 50px;
-    width: 50px;
+ img {
+    height: 286px;
+    width: 286px;
+} 
+
+
+ /* .list-group-flush{
+    display: flexbox;
+    justify-content: space-between;    
+}  */
+
+/* .itemPic {
+    position: relative;
+
+} */
+
+.card {
+    margin-bottom: 50px;
+    color: #89ABE3FF;
+    /* display: flex; */
+    /* justify-content: space-between; */
+    border-radius: 10px;
+    border: 2px solid white;
+    background-color: white;  
+    margin-top: 10px;  
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
-li {
-    list-style: none;
-    border-radius: 25px;
-    border: 2px solid white;
-    padding: 30px;
-    width: 50x;
-    height: 25px;
-    background-color: transparent;
-    /* color: white ; */
-    font-size: small;
-    /* margin-left: ; */
-    /* display:table; */
-    /* margin:0px auto 0px auto; */
-}
+html, body {
+    height: 100%;
+    margin: 0;
+  }
+  .wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .header, .footer {
+    background: white;
+  }
+  .content {
+    flex: 1;
+    overflow: auto;
+  }
+
+  .submitButton{
+    width: 160px;
+    height: 60px;
+    background-color: #89ABE3FF;
+    color: #89ABE3FF;
+    border: none;
+    padding: 15px 32px;
+  }
 
 .signUp {
     position: fixed;
@@ -107,19 +135,4 @@ li {
         cursor: pointer; */
   /* } */
 
-  .itemPrice {
-      float: right;
-  }
-
-  .itemAisle{
-      float: right;
-  }
-
-  .itemInfo {
-      float: left;
-  }
-
-  itemName {
-      display: flex;
-      justify-content: center;
-  }
+ 

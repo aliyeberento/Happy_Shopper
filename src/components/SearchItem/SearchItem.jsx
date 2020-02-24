@@ -1,5 +1,9 @@
 import React, { Component } from "react"
 import { connect } from 'react-redux';
+import {
+    Card, CardImg, CardText, CardBody,
+    CardTitle, CardSubtitle, Button
+} from 'reactstrap';
 
 
 
@@ -34,18 +38,33 @@ class SearchItem extends Component {
     render() {
         return (
             <>
-                <ul>
+                <div className = "content"> 
                     {this.props.store.search.map(item => (
                         <>
-                            <li key={item.id}>
-                                <img src={item.item_image} alt="item" />
-                                {item.item_name}
-                                Price: {item.item_price} Aisle : {item.item_isle}
-                            </li>
-                            <button className=" addBtn " onClick={(event) => this.addToList(event, item)}> Add </button>
+                            <Card className="card">
+                                <center> <CardImg height="140%" src={item.item_image} alt="Card image cap" /> </center>
+                                {/* <CardImg top width="50%" src={item.item_image} alt="Card image cap" /> */}
+                                <CardBody>
+                                    <CardTitle>{item.item_name}</CardTitle>
+                                    {/* <CardSubtitle>Card subtitle</CardSubtitle> */}
+                                    <div className="list-group-flush" >
+                                        <CardText>PRICE: ${item.item_price}</CardText>
+                                        <CardText>AISLE: {item.item_isle}</CardText>
+                                    </div>
+                                    {/* <Button>Button</Button> */}
+                                    <div>
+                                        {/* <Button onClick={() => this.updateQuantity(item)} > + </Button>
+                                        {item.quantity}
+                                        <button> - </button> */}
+                                        <button className=" addBtn " onClick={(event) => this.addToList(event, item)}> Add </button>
+
+                                    </div>
+                                </CardBody>
+                            </Card>
+
                         </>
                     ))}
-                </ul>
+                </div>
             </>
         )
     }

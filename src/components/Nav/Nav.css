@@ -2,19 +2,22 @@
     font-size: 24px;
     font-weight: 700;
     display: inline-block;
-    color: #f2f2f2;
+    color: #89ABE3FF;
     padding-left: 10px;
 }
 
 .nav {
   overflow: hidden;
-  background-color: #ffcfcf;
+  background-color: #f2f2f2;
+  font-style: italic;
+  font-weight: 700;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 .nav-link {
   float: left;
-  color: #f2f2f2;
-  background-color: #ffcfcf;
+  color: #89ABE3FF;
+  background-color: #FCF6F5FF;
   text-align: center;
   padding: 24px 10px;
   text-decoration: none;

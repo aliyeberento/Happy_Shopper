@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import {
+    Route
+} from 'react-router-dom';
 
 import SearchItem from '../SearchItem/SearchItem'
 
@@ -48,17 +51,24 @@ class SeachPage extends Component {
                         {this.props.store.user.username}
                     </h1>
                 </div>
-                <Link to="/list"> View List </Link>
-                <div className = "searchResults">
+                <div className="searchResults">
 
                     <form>
-                        <input placeholder="SEARCH" value={this.state.search.searchQuery} onChange={(event) => this.handleSearch(event)} />
-                        <input type="submit" onClick={this.handleClick} />
+                        <input placeholder="SEARCH" value={this.state.search.searchQuery} onChange={(event) => this.handleSearch(event)} size="30" />
+                        <button onClick={this.handleClick} className="submitButton"> TEST </button>
                     </form>
                     <div>
                         <SearchItem />
                     </div>
                 </div>
+                <button size = "100px">
+                    <footer>
+                        <Link to="/list">
+                            View list
+                        </Link>
+                    </footer>
+                </button>
+
             </>
         )
     }
