@@ -27,7 +27,10 @@ class SeachPage extends Component {
                 searchQuery: event.target.value
             }
         }, () => {
-            console.log(this.state.search.searchQuery)
+            this.props.dispatch({
+                type: 'FETCH_ITEMS',
+                payload: this.state.search.searchQuery
+            })
         })
     }
 
@@ -54,8 +57,8 @@ class SeachPage extends Component {
                 <div className="searchResults">
 
                     <form>
-                        <input placeholder="SEARCH" value={this.state.search.searchQuery} onChange={(event) => this.handleSearch(event)} size="30" />
-                        <button onClick={this.handleClick} className="submitButton"> TEST </button>
+                        <input placeholder="SEARCH" value={this.state.search.searchQuery} onChange={(event) => this.handleSearch(event)} className="searchInput" />
+                        {/* <button onClick={this.handleClick} className="submitButton"> TEST </button> */}
                     </form>
                     <div>
                         <SearchItem />

@@ -35,33 +35,35 @@ class SearchItem extends Component {
         })
     }
 
+     myFunction = () => {
+        document.getElementById("myDropdown").classList.toggle("show");
+      }
+      
     render() {
         return (
             <>
-                <div className = "content"> 
+                <div className="content">
                     {this.props.store.search.map(item => (
                         <>
                             <Card className="card">
                                 <center> <CardImg height="140%" src={item.item_image} alt="Card image cap" /> </center>
-                                {/* <CardImg top width="50%" src={item.item_image} alt="Card image cap" /> */}
                                 <CardBody>
                                     <CardTitle>{item.item_name}</CardTitle>
-                                    {/* <CardSubtitle>Card subtitle</CardSubtitle> */}
                                     <div className="list-group-flush" >
                                         <CardText>PRICE: ${item.item_price}</CardText>
                                         <CardText>AISLE: {item.item_isle}</CardText>
                                     </div>
-                                    {/* <Button>Button</Button> */}
                                     <div>
-                                        {/* <Button onClick={() => this.updateQuantity(item)} > + </Button>
-                                        {item.quantity}
-                                        <button> - </button> */}
                                         <button className=" addBtn " onClick={(event) => this.addToList(event, item)}> Add </button>
-
                                     </div>
                                 </CardBody>
-                            </Card>
-
+                            </Card> 
+                            {/* <div class="dropdown">
+                                <button onclick= {this.myFunction} class="dropbtn">Dropdown</button>
+                                <div id="myDropdown" class="dropdown-content">
+                                    <p> {item.item_name} {item.item_price} </p>
+                                </div> */}
+                            {/* </div> */}
                         </>
                     ))}
                 </div>

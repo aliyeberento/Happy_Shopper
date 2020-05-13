@@ -8,7 +8,7 @@
 
 .nav {
   overflow: hidden;
-  background-color: #f2f2f2;
+  background-color: #FCF6F5FF;
   font-style: italic;
   font-weight: 700;
   font-family: 'Times New Roman', Times, serif;
@@ -21,6 +21,7 @@
   text-align: center;
   padding: 24px 10px;
   text-decoration: none;
+  font-family: 'Times New Roman', Times, serif;
   font-size: 15px;
 
   /* these last two make the logout button in
